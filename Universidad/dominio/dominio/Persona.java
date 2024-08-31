@@ -10,9 +10,8 @@ public class Persona {
 	private long dni;
 
 public Persona(String nombre, String apellido, GregorianCalendar fechaDeNacimiento, long dni) throws ExceptionAlumno {
-		if (nombre == null) throw new ExceptionAlumnoNombreNulo();
-			this.nombre = nombre;
-
+		ValidarPersona.validarNombre(nombre);
+		this.nombre = nombre;
 		this.apellido = apellido;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 		this.dni = dni;

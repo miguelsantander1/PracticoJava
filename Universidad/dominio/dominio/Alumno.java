@@ -31,7 +31,7 @@ public class Alumno extends Persona implements Comparable<Alumno> {
 
 	@Override
 	public String toString() {
-		return this.toString()+"/nFecha De Incripcion: " + fechaDeIncripcion + "/nCarrera: " + carrera;
+		return super.toString()+"/nFecha De Incripcion: " + fechaDeIncripcion + "/nCarrera: " + carrera;
 	}
 
 	@Override

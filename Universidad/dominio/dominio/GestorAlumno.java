@@ -28,53 +28,18 @@ public class GestorAlumno {
 	}
 	
 	public boolean addAlumno(Alumno alumno) {
-		
-		return alumnosUniversidad.add(alumno);
+		return AgregarAlumnos.addAlumnos(alumno, alumnosUniversidad);
 	}
 	
 	public boolean eliminarAlumno(int dni) {
-		Iterator it= alumnosUniversidad.iterator();
-		Alumno alumnoAux;
-		while (it.hasNext()) {
-			alumnoAux = (Alumno) it.next();
-			if (alumnoAux.getDni()==dni)
-				it.remove();
-		}
-		return false;
+		return EliminarAlumno.eliminarAlumno(dni, alumnosUniversidad);
 	}
 	
 	public Set<Alumno> buscarAlumnosPorMateria(TreeSet<Integer> dnisDeAlumnos) {
-		TreeSet<Alumno> alumnosDeLaMateria= new TreeSet<Alumno>();
-		for(Alumno alumnoAux:alumnosUniversidad) {
-			if(dnisDeAlumnos.contains(alumnoAux.getDni()));
-				alumnosDeLaMateria.add(alumnoAux);
-		}
-		
-		alumnosUniversidad.stream()
-									.filter(al -> dnisDeAlumnos.contains(al.getDni()))
-									.sorted()
-									.collect(Collectors.toCollection(TreeSet::new));
-		
-		return alumnosDeLaMateria;
+		return BuscarAlumnosPorMateria.bucarAlumnosPorMateria(dnisDeAlumnos,alumnosUniversidad);
 	}
 	
-	public Set<Alumno> buscarAlumnoPorFechaDeIncripsion(GregorianCalendar fechaHasta) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/year");
-		return alumnosUniversidad.stream()
-									.filter(al->al.getFechaDeIncripcion().before(fechaHasta))
-									.sorted(new Comparator<Alumno>() {
-
-										@Override
-										public int compare(Alumno al1, Alumno al2) {
-											int aux = al1.getApellido().compareTo(al2.getApellido());
-											
-											if(aux==0)
-												aux=al1.getNombre().compareTo(al2.getNombre());
-											
-											
-											return aux;
-										}
-									})
-									.collect(Collectors.toCollection(HashSet::new));
+	public Set<Alumno> buscarAlumnosPorFechaDeIncripsion(GregorianCalendar fechaHasta) {
+		return BuscarAlumnosPorFechaDeInscripsion.buscarAlumnosPorFechaDeInscripsion(fechaHasta, alumnosUniversidad);
 	}
 }

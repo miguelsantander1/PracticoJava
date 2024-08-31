@@ -9,7 +9,7 @@ public class Profesor extends Persona{
 	public Profesor(String nombre, String apellido, GregorianCalendar fechaDeNacimiento, long dni,
 			String fechaDeIngreso, String titulo) throws ExceptionAlumno {
 		super(nombre, apellido, fechaDeNacimiento, dni);
-		FechaDeIngreso = fechaDeIngreso;
+		this.FechaDeIngreso = fechaDeIngreso;
 		this.titulo = titulo;
 	}
 
@@ -31,7 +31,7 @@ public class Profesor extends Persona{
 
 	@Override
 	public String toString() {
-		return "/nFecha De Ingreso: " + FechaDeIngreso + "/Titulo: " + titulo;
+		return super.toString() + "/nFecha De Ingreso: " + FechaDeIngreso + "/Titulo: " + titulo;
 	}
 	
 	
