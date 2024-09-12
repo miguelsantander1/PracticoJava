@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 
-public class EliminarAlumno  {
-	public static boolean eliminarAlumno(int dni,Set<Alumno> alumnosUniversidad) {
+public class EliminarAlumno implements IEliminarAlumno {
+	public boolean eliminarAlumno(int dni,Set<Alumno> alumnosUniversidad) {
 	Iterator it= alumnosUniversidad.iterator();
 	Alumno alumnoAux;
 	while (it.hasNext()) {

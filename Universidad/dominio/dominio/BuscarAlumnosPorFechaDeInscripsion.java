@@ -7,9 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BuscarAlumnosPorFechaDeInscripsion {
+public class BuscarAlumnosPorFechaDeInscripsion implements IBuscarAlumnos{
 	
-	public static Set<Alumno> buscarAlumnosPorFechaDeInscripsion(GregorianCalendar fechaHasta,Set<Alumno> alumnosUniversidad) { 
+	public Set<Alumno> buscarAlumnos(Set<Alumno> alumnosUniversidad, Object criterio) { 
+	GregorianCalendar fechaHasta = (GregorianCalendar) criterio;
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/year");
 	return alumnosUniversidad.stream()
 			.filter(al->al.getFechaDeIncripcion().before(fechaHasta))
