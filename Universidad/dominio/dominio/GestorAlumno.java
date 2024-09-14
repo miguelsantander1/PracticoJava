@@ -22,7 +22,7 @@ public class GestorAlumno {
 	
 	private GestorAlumno() {
 		alumnosUniversidad = new HashSet<Alumno>();
-		agregarAlumno = new AgregarAlumno();
+		agregarAlumno = new AgregarAlumno(alumnosUniversidad);
 		eliminarAlumno = new EliminarAlumno();
 		buscarAlumnosPorFechaDeInscripsion = new BuscarAlumnosPorFechaDeInscripsion();
 		buscarAlumnosPorMateria = new BuscarAlumnosPorMateria();
@@ -36,7 +36,7 @@ public class GestorAlumno {
 	}
 	
 	public boolean addAlumno(Alumno alumno) {
-		return agregarAlumno.addAlumnos(alumno, alumnosUniversidad);
+		return agregarAlumno.addAlumno(alumno);
 	}
 	
 	public boolean eliminarAlumno(int dni) {
