@@ -17,8 +17,8 @@ public class GestorAlumno {
 	private int indice;
 	private IAgregarAlumno agregarAlumno;
 	private IEliminarAlumno eliminarAlumno;
-	private IBuscarAlumnos buscarAlumnosPorFechaDeInscripsion;
-	private IBuscarAlumnos buscarAlumnosPorMateria;
+	private IBuscarAlumnosPorFechaDeInscripcion buscarAlumnosPorFechaDeInscripsion;
+	private IBuscarAlumnosPorMateria buscarAlumnosPorMateria;
 	
 	private GestorAlumno() {
 		alumnosUniversidad = new HashSet<Alumno>();

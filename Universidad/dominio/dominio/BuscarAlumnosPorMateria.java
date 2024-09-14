@@ -4,9 +4,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public class BuscarAlumnosPorMateria implements IBuscarAlumnos{
-	public Set<Alumno> buscarAlumnos(Set<Alumno> alumnosUniversidad, Object criterio){ 
-		TreeSet<Integer> dnisDeAlumnos = (TreeSet<Integer>) criterio;
+public class BuscarAlumnosPorMateria implements IBuscarAlumnosPorMateria{
+	public Set<Alumno> buscarAlumnos(Set<Alumno> alumnosUniversidad, TreeSet<Integer> dnisDeAlumnos){ 
 		TreeSet<Alumno> alumnosDeLaMateria= new TreeSet<Alumno>();
 		for(Alumno alumnoAux:alumnosUniversidad) {
 			if(dnisDeAlumnos.contains(alumnoAux.getDni()));
